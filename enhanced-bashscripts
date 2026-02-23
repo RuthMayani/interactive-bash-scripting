@@ -1,0 +1,65 @@
+#!/bin/bash
+
+echo "======================================"
+echo "  Welcome to DevHub Selector! "
+echo "======================================"
+echo
+echo "Choose a programming language:"
+echo
+echo "1) Python"
+echo "2) Java"
+echo "3) C++"
+echo "4) JavaScript"
+echo "5) Go"
+echo
+
+read -p "Enter your choice [number or name]: " choice
+echo
+
+# Normalize input to lowercase
+choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
+
+case $choice in
+
+1|"python")
+    echo "You selected Python."
+    read -p "What will you use it for? (web, data, automation): " purpose
+    purpose=$(echo "$purpose" | tr '[:upper:]' '[:lower:]')
+    echo
+    echo "Great choice. Python is excellent for $purpose development!"
+    ;;
+
+2|"java")
+    echo "You selected Java."
+    read -p "Are you building (mobile, desktop, enterprise) applications? " app_type
+    app_type=$(echo "$app_type" | tr '[:upper:]' '[:lower:]')
+    echo
+    echo "Awesome! Java is powerful for $app_type applications."
+    ;;
+
+3|"c++")
+    echo "You selected C++."
+    echo "Excellent for system programming and game development!"
+    ;;
+
+4|"javascript")
+    echo "You selected JavaScript."
+    read -p "Frontend or Backend? " js_type
+    js_type=$(echo "$js_type" | tr '[:upper:]' '[:lower:]')
+    echo
+    echo "Nice! JavaScript is widely used for $js_type development."
+    ;;
+
+5|"go")
+    echo "You selected Go."
+    echo "Great for backend systems and cloud services!"
+    ;;
+
+*)
+    echo "❌ That is not an option. Please choose from the listed items."
+    ;;
+
+esac
+
+echo
+echo "✅ Thank you for using DevHub Selector!"
